@@ -1,19 +1,20 @@
 "use client";
 import Image from "next/image";
-import { fetchpokemon } from "@/api/api";
+import { fetchpokemon, Pokemon } from "@/api/api";
 import PokeCard from "@/Component/Pokecard/PokeCard";
 import React, { useEffect, useState } from "react";
 import pokemonpic from "../../public/pngegg.png";
+import build from "next/dist/build";
 
 const Page = () => {
-  const [pokemon, setPokemon] = useState([]);
+  const [pokemon, setPokemon] = useState<Pokemon[]>([]);
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10; // Pokémon per page
 
   useEffect(() => {
     const getPokemon = async () => {
-      const data = await fetchpokemon();
+      const data: Pokemon[] = await fetchpokemon(); // ✅ Ensure fetchpokemon returns correct type
       setPokemon(data);
     };
     getPokemon();
