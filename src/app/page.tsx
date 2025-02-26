@@ -4,7 +4,6 @@ import { fetchpokemon, Pokemon } from "@/api/api";
 import PokeCard from "@/Component/Pokecard/PokeCard";
 import React, { useEffect, useState } from "react";
 import pokemonpic from "../../public/pngegg.png";
-import build from "next/dist/build";
 
 const Page = () => {
   const [pokemon, setPokemon] = useState<Pokemon[]>([]);

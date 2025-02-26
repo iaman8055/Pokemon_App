@@ -1,10 +1,8 @@
+import { Pokemon } from "@/api/api";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-// Define the type for Pokémon data
-
-// Define props type
 interface PokeDataCardProps {
   pokeData: Pokemon;
 }
