@@ -1,0 +1,63 @@
+.poke-card {
+    position: relative;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    border: 3px solid #ddd;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .poke-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .poke-card-content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .poke-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: start;
+  }
+  
+  .poke-image-wrapper {
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(0px 50px 100px rgba(50, 50, 93, 0.25));
+  }
+  
+  .poke-image {
+    object-fit: contain;
+    margin: auto;
+  }
+  
+  .poke-info {
+    margin-top: 16px;
+    color: black;
+  }
+  
+  .poke-type {
+    display: inline-block;
+    background-color: #38a169;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .poke-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    text-align: left;
+    margin-top: 10px;
+  }
+  
+  .label {
+    font-weight: 600;
+  }
+  

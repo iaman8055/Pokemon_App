@@ -2,6 +2,7 @@ import { Pokemon } from "@/api/api";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
+import "./card.css";
 
 interface PokeDataCardProps {
   pokeData: Pokemon;
@@ -13,46 +14,44 @@ const PokeDataCard: React.FC<PokeDataCardProps> = ({ pokeData }) => {
   return (
     <div
       key={pokeData.id}
-      className="relative shadow-md rounded-4xl border-[3px]"
+      className="poke-card"
       onClick={() => router.push(`/pokemon/${pokeData.id}`)}
     >
-      <div className="p-5 w-fit">
-        <h2 className="text-xl font-bold uppercase text-start">
-          {pokeData.name}
-        </h2>
-        <div className="flex justify-center drop-shadow-[0px_50px_100px_rgba(50,50,93,0.25)]">
+      <div className="poke-card-content">
+        <h2 className="poke-name">{pokeData.name}</h2>
+        <div className="poke-image-wrapper">
           <Image
             src={pokeData.sprites.other["official-artwork"].front_default}
             alt={pokeData.name}
             width={120}
             height={120}
-            className="object-contain m-auto"
+            className="poke-image"
           />
         </div>
-        <div className="mt-4 text-black space-y-2">
-          <p className="max-w-fit bg-green-400 rounded-3xl p-2 text-lg text-white font-bold">
+        <div className="poke-info">
+          <p className="poke-type">
             {pokeData.types.map((type) => type.type.name).join(", ")}
           </p>
-          <div className="grid grid-cols-2 gap-x-5">
+          <div className="poke-stats">
             <p>
-              <span className="font-semibold">Ability:</span>{" "}
+              <span className="label">Ability:</span>{" "}
               {pokeData.abilities
                 .map((ability) => ability.ability.name)
                 .slice(0, 1)
                 .join(", ")}
             </p>
             <p>
-              <span className="font-semibold">Speed:</span>{" "}
+              <span className="label">Speed:</span>{" "}
               {pokeData.stats.find((stat) => stat.stat.name === "speed")
                 ?.base_stat ?? "N/A"}
             </p>
             <p>
-              <span className="font-semibold">Attack:</span>{" "}
+              <span className="label">Attack:</span>{" "}
               {pokeData.stats.find((stat) => stat.stat.name === "attack")
                 ?.base_stat ?? "N/A"}
             </p>
             <p>
-              <span className="font-semibold">Height:</span> {pokeData.height}
+              <span className="label">Height:</span> {pokeData.height}
             </p>
           </div>
         </div>
